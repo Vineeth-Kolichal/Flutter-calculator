@@ -13,6 +13,17 @@ class CalcApp extends StatelessWidget {
     return MaterialApp(
       title: 'Calculator',
       home: Scaffold(
+        appBar: AppBar(
+          centerTitle: true,
+          leading: const Icon(
+            Icons.calculate,
+          ),
+          title: const Text(
+            'CALCULATOR',
+            style: TextStyle(fontSize: 30, color: Colors.cyanAccent),
+          ),
+          backgroundColor: Colors.black12,
+        ),
         backgroundColor: const Color(0xFF283637),
         body: Center(
           child: Container(
@@ -25,20 +36,20 @@ class CalcApp extends StatelessWidget {
                     padding: EdgeInsets.all(12),
                     child: Text(
                       'hello',
-                      style: TextStyle(color: Colors.white,fontSize: 35),
+                      style: TextStyle(color: Colors.white54, fontSize: 35),
                     ),
                   ),
-                  alignment: const Alignment(1.0,1.0),
+                  alignment: const Alignment(1.0, 1.0),
                 ),
                 Container(
                   child: const Padding(
                     padding: EdgeInsets.all(12),
                     child: Text(
                       'hello',
-                      style: TextStyle(color: Colors.white,fontSize: 50),
+                      style: TextStyle(color: Colors.white, fontSize: 50),
                     ),
                   ),
-                  alignment: const Alignment(1.0,1.0),
+                  alignment: const Alignment(1.0, 1.0),
                 ),
                 Row(
                   mainAxisAlignment: MainAxisAlignment.spaceEvenly,
