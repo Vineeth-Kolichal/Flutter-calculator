@@ -12,13 +12,31 @@ class CalacButton extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return SizedBox(
-      width: 65,
-      height: 65,
-      child: TextButton(
-        child: Text(text),
-        onPressed: () {},
-      ),
+    return Container(
+      padding: const EdgeInsets.all(10),
+      child: ClipRRect(
+            borderRadius: BorderRadius.circular(20),
+            child: Stack(
+              children: <Widget>[
+                Positioned.fill(
+                  child: Container(
+                    decoration: BoxDecoration(
+                      color:textColor
+                    ),
+                  ),
+                ),
+                TextButton(
+                  style: TextButton.styleFrom(
+                    padding: const EdgeInsets.all(16.0),
+                    primary: Colors.white,
+                    textStyle: const TextStyle(fontSize: 25),
+                  ),
+                  onPressed: () {},
+                  child: Text(text),
+                ),
+              ],
+            ),
+          ),
     );
   }
 }
