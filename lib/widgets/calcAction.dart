@@ -1,4 +1,6 @@
 
+// ignore_for_file: prefer_const_constructors, file_names
+
 import 'package:calculator/widgets/calcButton.dart';
 import 'package:flutter/material.dart';
 import 'package:math_expressions/math_expressions.dart';
@@ -15,10 +17,8 @@ class _CalcActionState extends State<CalcAction> {
   String _history='';
   String _evaluate='';
   void numclick(String test){
-    print('function test');
 setState(() {
-  _evaluate=test;
-  _history=_history+test;
+  _evaluate=_evaluate+test;
 });
   }
   void allClear(String test){
@@ -34,7 +34,14 @@ setState(() {
 });
   }
   void findAns(String test){
-print('function test');
+Parser p =Parser();
+Expression exp=p.parse(_evaluate);
+ContextModel cm=ContextModel();
+
+setState(() {
+  _history=_evaluate;
+  _evaluate=exp.evaluate(EvaluationType.REAL,cm).toString();
+});
 
   }
 
@@ -71,22 +78,22 @@ print('function test');
                   children:  [
                     CalacButton(
                       text: 'AC',
-                      textColor: Colors.grey,
+                      textColor: Colors.blueGrey,
                       callf: allClear,
                     ),
                     CalacButton(
                       text: 'C',
-                      textColor: Colors.grey,
+                      textColor: Colors.blueGrey,
                       callf: clear,
                     ),
                     CalacButton(
                       text: '%',
-                      textColor: Colors.red,
+                      textColor: Colors.grey,
                       callf: numclick,
                     ),
                     CalacButton(
                       text: '/',
-                      textColor: Colors.red,
+                      textColor: Colors.grey,
                       callf: numclick,
                     ),
                   ],
@@ -111,7 +118,7 @@ print('function test');
                     ),
                     CalacButton(
                       text: 'x',
-                      textColor: Colors.red,
+                      textColor: Colors.grey,
                        callf: numclick,
                     ),
                   ],
@@ -136,7 +143,7 @@ print('function test');
                     ),
                     CalacButton(
                       text: '-',
-                      textColor: Colors.red,
+                      textColor: Colors.grey,
                        callf: numclick,
                     ),
                   ],
@@ -161,7 +168,7 @@ print('function test');
                     ),
                     CalacButton(
                       text: '+',
-                      textColor: Colors.red,
+                      textColor: Colors.grey,
                        callf: numclick,
                     ),
                   ],
