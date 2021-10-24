@@ -5,9 +5,11 @@ import 'package:flutter/material.dart';
 class CalacButton extends StatelessWidget {
   final String text;
   final Color textColor;
+  final Function callf;
   const CalacButton({Key? key, 
   required this.text,
   required this.textColor,
+  required this.callf,
   }) : super(key: key);
 
   @override
@@ -15,7 +17,7 @@ class CalacButton extends StatelessWidget {
     return Container(
       padding: const EdgeInsets.all(10),
       child: ClipRRect(
-            borderRadius: BorderRadius.circular(20),
+            borderRadius: BorderRadius.circular(100),
             child: Stack(
               children: <Widget>[
                 Positioned.fill(
@@ -29,9 +31,11 @@ class CalacButton extends StatelessWidget {
                   style: TextButton.styleFrom(
                     padding: const EdgeInsets.all(16.0),
                     primary: Colors.white,
-                    textStyle: const TextStyle(fontSize: 25),
+                    textStyle: const TextStyle(fontSize: 20),
                   ),
-                  onPressed: () {},
+                  onPressed: () {
+                    callf(text);
+                  },
                   child: Text(text),
                 ),
               ],
